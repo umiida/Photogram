@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "48253092451",
+    "firebase_url": "https://mininetwork-90292.firebaseio.com",
+    "project_id": "mininetwork-90292",
+    "storage_bucket": "mininetwork-90292.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48253092451:android:b7cf566c8616ace2f36e56",
+        "android_client_info": {
+          "package_name": "com.example.mininetworkbyru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48253092451-als19rmilg9akpamtn56rjlir1cmk19b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mininetworkbyru",
+            "certificate_hash": "aae846061aab35ded427e9dc38a04284baeaa5cc"
+          }
+        },
+        {
+          "client_id": "48253092451-gevmc88h8t055jehj8l23ib5c98647f5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgibh02X-rSrvf5Mtj5xgKC6REQt7uQe0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48253092451-gevmc88h8t055jehj8l23ib5c98647f5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

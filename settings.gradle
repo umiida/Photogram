@@ -1,0 +1,2 @@
+rootProject.name='Mini Network by RU'
+include ':app'
