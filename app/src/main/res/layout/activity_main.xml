@@ -7,16 +7,16 @@
     tools:context=".ui.MainActivity">
 
     <FrameLayout
-        android:id="@+id/frl_layout"
+        android:id="@+id/flMain"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bnv_main"/>
+        app:layout_constraintBottom_toTopOf="@id/bnvMain"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnv_main"
+        android:id="@+id/bnvMain"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
         app:menu="@menu/main_menu"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"
-        android:background="@color/colorPrimary"/>
+        android:background="#6E0212"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

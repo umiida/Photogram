@@ -1,4 +1,4 @@
-package com.example.mininetworkbyru.ui.signup
+package com.example.mininetworkbyru.ui.sign_up
 
 import android.content.Intent
 import android.os.Bundle
@@ -18,12 +18,12 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         mAuth = FirebaseAuth.getInstance()
-        btn_register.setOnClickListener {
+        btnRegister.setOnClickListener {
             loading(true)
-            if (etr_username.text.isNotEmpty() && etr_password.text.isNotEmpty()) {
+            if (etUsernameRegister.text.isNotEmpty() && etPasswordRegister.text.isNotEmpty()) {
                 mAuth.createUserWithEmailAndPassword(
-                    etr_username.text.toString(),
-                    etr_password.text.toString()
+                    etUsernameRegister.text.toString(),
+                    etPasswordRegister.text.toString()
                 )
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
@@ -51,13 +51,10 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun loading(view: Boolean) {
         if (view) {
-            pbr_loading.visibility = View.VISIBLE
+            pbRegister.visibility = View.VISIBLE
         } else {
-            pbr_loading.visibility = View.GONE
+            pbRegister.visibility = View.GONE
         }
-//        etr_username.isEnabled = !view
-//        et_password.isEnabled = !view
-//        btn_register.isEnabled = !view
     }
 }
 

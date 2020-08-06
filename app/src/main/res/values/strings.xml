@@ -17,4 +17,6 @@
     <string name="hint_email">email</string>
     <string name="hint_information">information</string>
     <string name="save">save</string>
+    <string name="post_text">post text</string>
+    <string name="send">send</string>
 </resources>

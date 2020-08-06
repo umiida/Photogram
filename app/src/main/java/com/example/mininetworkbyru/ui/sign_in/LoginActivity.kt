@@ -1,4 +1,4 @@
-package com.example.mininetworkbyru.ui.signin
+package com.example.mininetworkbyru.ui.sign_in
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mininetworkbyru.R
 import com.example.mininetworkbyru.ui.MainActivity
-import com.example.mininetworkbyru.ui.signup.RegisterActivity
+import com.example.mininetworkbyru.ui.sign_up.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
@@ -20,12 +20,12 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         mAuth = FirebaseAuth.getInstance()
-        btn_login.setOnClickListener {
+        btnLogin.setOnClickListener {
             loadingView(true)
-            if (et_username.text.isNotEmpty() && et_password.text.isNotEmpty()) {
+            if (etUsernameLogin.text.isNotEmpty() && etPasswordLogin.text.isNotEmpty()) {
                 mAuth.signInWithEmailAndPassword(
-                    et_username.text.toString(),
-                    et_password.text.toString()
+                    etUsernameLogin.text.toString(),
+                    etPasswordLogin.text.toString()
                 )
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
                     }
             }
         }
-        tv_register.setOnClickListener {
+        tvRegisterLogin.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             finish()
@@ -64,13 +64,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun loadingView(loading: Boolean) {
         if (loading) {
-            pb_loading.visibility = View.VISIBLE
+            pbLogin.visibility = View.VISIBLE
         } else {
-            pb_loading.visibility = View.GONE
+            pbLogin.visibility = View.GONE
         }
-//        et_username.isEnabled = !loading
-//        et_password.isEnabled = loading
-//        btn_login.isEnabled = loading
-//        tv_register.isEnabled = loading
     }
 }
