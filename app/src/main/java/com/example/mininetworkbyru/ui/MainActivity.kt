@@ -5,6 +5,9 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.mininetworkbyru.R
+import com.example.mininetworkbyru.ui.add_post.AddPostFragment
+import com.example.mininetworkbyru.ui.get_post.GetPostFragment
+import com.example.mininetworkbyru.ui.profile.ProfileFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,14 +34,26 @@ class MainActivity : AppCompatActivity() {
                             Log.d("paydalaniwshi", e.localizedMessage!!.toString())
                         }
                 }
-                bnv_main.setOnNavigationItemSelectedListener {
+                bnvMain.setOnNavigationItemSelectedListener {
                     when (it.itemId) {
                         R.id.profile -> {
                             val fragment: Fragment =
                                 ProfileFragment()
                             changeFr(fragment,
-                                R.id.frl_layout
+                                R.id.flMain
                             )
+                            return@setOnNavigationItemSelectedListener true
+                        }
+                        R.id.add -> {
+                            val fragment: Fragment =
+                                AddPostFragment()
+                            changeFr(fragment, R.id.flMain)
+                            return@setOnNavigationItemSelectedListener true
+                        }
+                        R.id.home->{
+                            val fragment: Fragment =
+                                GetPostFragment()
+                            changeFr(fragment, R.id.flMain)
                             return@setOnNavigationItemSelectedListener true
                         }
                         else -> return@setOnNavigationItemSelectedListener false
