@@ -4,13 +4,50 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ImageView
+        android:id="@+id/imgAvaAddPost"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="@dimen/margin16"
+        android:layout_marginTop="@dimen/margin16"
+        android:src="@drawable/account"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitleAddPost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin16"
+        android:layout_marginTop="@dimen/margin16"
+        android:layout_marginEnd="@dimen/margin16"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgAvaAddPost"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="bottom"
+        android:layout_marginBottom="@dimen/margin16" />
+
+    <EditText
+        android:id="@+id/etDescAddPost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin16"
+        android:layout_marginEnd="@dimen/margin16"
+        android:hint="description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgAvaAddPost"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleAddPost"
+        />
+
     <EditText
         android:id="@+id/etAddPostText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etDescAddPost"
         android:layout_margin="@dimen/margin16"
         android:lines="10"
         android:maxLines="10"

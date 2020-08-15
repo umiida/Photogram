@@ -8,24 +8,24 @@
 
     <FrameLayout
         android:id="@+id/flMain"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bnvMain"/>
+        app:layout_constraintBottom_toTopOf="@id/bnvMain"
+        android:layout_margin="@dimen/margin16"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnvMain"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/main_menu"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"
-        android:background="#6E0212"/>
+        android:background="#6E0212"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
