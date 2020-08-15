@@ -11,6 +11,7 @@ import com.example.mininetworkbyru.ui.profile.ProfileFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.add_post_fragment.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val view: Fragment =
+            GetPostFragment()
+        changeFr(view,
+            R.id.flMain
+        )
         db.collection("users").document(mAuth.currentUser?.uid!!).get()
             .addOnCompleteListener {
                 //Log.d("tekseriw", it.result.toString())
@@ -61,10 +67,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
     }
-
     private fun changeFr(fragment: Fragment, container: Int) {
         supportFragmentManager.beginTransaction().replace(container, fragment).commit()
-
     }
 }
 

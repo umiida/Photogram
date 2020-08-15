@@ -27,15 +27,14 @@ class GetPostAdapter : RecyclerView.Adapter<GetPostAdapter.GetPostViewHolder>() 
     }
 
     inner class GetPostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun populateModel(user: Post) {
-            itemView.tvTitleGetPost.text = user.title
-            itemView.tvDescGetPost.text = user.description
-            itemView.etTextGetPost.setText(user.text)
+        fun populateModel(post: Post) {
+            itemView.tvTitleGetPost.text = post.title
+            itemView.tvDescGetPost.text = post.description
+            itemView.etTextGetPost.setText(post.text)
         }
     }
 
 }
-
 data class Post(
     val title: String = "",
     val description: String = "",

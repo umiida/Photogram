@@ -36,9 +36,9 @@ class ProfileFragment: Fragment(R.layout.profile_fragment) {
     private fun showData(){
         db.collection("users").document(mAuth.currentUser!!.uid).get()
             .addOnSuccessListener {
-                etEmailProfile.setText(it.get("username").toString())
-                etUsernameProfile.setText(it.get("email").toString())
-                etPhoneProfile.setText(it.get("phone_number").toString())
+                etEmailProfile.setText(it.get("email").toString())
+                etUsernameProfile.setText(it.get("username").toString())
+                etPhoneProfile.setText(it.get("phone").toString())
                 etInfoProfile.setText(it.get("information").toString())
             }
     }
