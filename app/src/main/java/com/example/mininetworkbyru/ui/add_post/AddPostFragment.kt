@@ -10,6 +10,7 @@ import com.example.mininetworkbyru.ui.profile.ProfileFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.add_post_fragment.*
+import kotlinx.android.synthetic.main.get_post_item.*
 import kotlinx.android.synthetic.main.profile_fragment.*
 
 class AddPostFragment(): Fragment(R.layout.add_post_fragment) {
@@ -32,7 +33,7 @@ class AddPostFragment(): Fragment(R.layout.add_post_fragment) {
                 map["text"] = etAddPostText.text.toString()
                 map["like"] = 0
                 map["dislike"] = 0
-                map["comments"] = 0
+                map["comments"] = arrayListOf<String>()
                 map["title"] = tvTitleAddPost.text.toString()
                 map["description"] = etDescAddPost.text.toString()
 

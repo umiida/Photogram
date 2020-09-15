@@ -1,5 +1,6 @@
 package com.example.mininetworkbyru.ui.get_post
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mininetworkbyru.R
+import com.example.mininetworkbyru.ui.comment.CommentActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.get_post_fragment.*
@@ -16,15 +18,21 @@ import kotlinx.android.synthetic.main.get_post_item.*
 class GetPostFragment: Fragment(R.layout.get_post_fragment) {
     private val db = FirebaseFirestore.getInstance()
     private val adapter = GetPostAdapter()
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        adapter.setOnItemClicked {
+            val intent = Intent(requireContext(), CommentActivity:: class.java)
+            intent.putExtra("comId", it.id)
+            startActivity(intent)
+        }
         rcvGetPost.adapter = adapter
         rcvGetPost.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         rcvGetPost.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
         getAllPosts()
-
     }
+
     private fun getAllPosts(){
         val result: MutableList<Post> = mutableListOf()
         db.collection("posts").addSnapshotListener { value, error ->
@@ -35,6 +43,7 @@ class GetPostFragment: Fragment(R.layout.get_post_fragment) {
             db.collection("posts").get().addOnSuccessListener {
                 it.documents.forEach{doc->
                     val model = doc.toObject(Post::class.java)
+                    model?.id = doc.id
                     model?.let {
                         result.add(model)
                     }
