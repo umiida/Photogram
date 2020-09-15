@@ -15,6 +15,11 @@ class GetPostAdapter : RecyclerView.Adapter<GetPostAdapter.GetPostViewHolder>() 
             notifyDataSetChanged()
         }
 
+    var onItemClick :(model: Post) -> Unit = {}
+    fun setOnItemClicked(onItemClick: (model: Post) -> Unit){
+        this.onItemClick = onItemClick
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GetPostViewHolder {
         val itemViewHolder = LayoutInflater.from(parent.context).inflate(R.layout.get_post_item, parent, false)
         return GetPostViewHolder(itemViewHolder)
@@ -30,15 +35,19 @@ class GetPostAdapter : RecyclerView.Adapter<GetPostAdapter.GetPostViewHolder>() 
         fun populateModel(post: Post) {
             itemView.tvTitleGetPost.text = post.title
             itemView.tvDescGetPost.text = post.description
-            itemView.etTextGetPost.setText(post.text)
+            itemView.tvTextGetPost.text = post.text
+
+            itemView.setOnClickListener {
+                onItemClick.invoke(post)
+            }
         }
     }
-
 }
 data class Post(
     val title: String = "",
     val description: String = "",
     val text: String = "",
+    var id: String = "",
     val like: Int = 0,
     val dislike: Int = 0,
     val userId: String = ""
