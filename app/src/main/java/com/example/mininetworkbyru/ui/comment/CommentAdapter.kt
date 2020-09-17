@@ -9,7 +9,7 @@ import com.example.mininetworkbyru.ui.get_post.Post
 import kotlinx.android.synthetic.main.comment_item.view.*
 
 class CommentAdapter: RecyclerView.Adapter<CommentAdapter.CommentViewHolder>() {
-    var models: List<String> = listOf()
+    var models: List<Map<String, String>> = listOf()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -27,8 +27,9 @@ class CommentAdapter: RecyclerView.Adapter<CommentAdapter.CommentViewHolder>() {
     }
 
     inner class CommentViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        fun populateModel(comment: String){
-            itemView.tvCommentTI.text = comment
+        fun populateModel(comment: Map<String, String>){
+            itemView.tvCommentUI.text = comment["cmt_username"]
+            itemView.tvCommentTI.text = comment["cmt_text"]
         }
     }
 }
