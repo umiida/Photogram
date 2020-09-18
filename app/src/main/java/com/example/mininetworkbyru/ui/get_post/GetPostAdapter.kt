@@ -50,5 +50,6 @@ data class Post(
     var id: String = "",
     val like: Int = 0,
     val dislike: Int = 0,
-    val userId: String = ""
+    val userId: String = "",
+    var cmt_text: String = ""
 )

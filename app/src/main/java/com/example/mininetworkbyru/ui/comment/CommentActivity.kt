@@ -29,7 +29,7 @@ class CommentActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 if (it.exists()) {
                     it.get("comments")?.let { comment ->
-                        adapter.models = comment as List<String>
+                        adapter.models = comment as List<Map<String, String>>
                     }
                     if(adapter.models.isNotEmpty()){
                         tvCommentEmpty.visibility = View.GONE
@@ -40,6 +40,7 @@ class CommentActivity : AppCompatActivity() {
                         tvCommentEmpty.visibility = View.VISIBLE
                     }
                 }
+
 //                if (it.exists()) {
 //                    it.get("comments")?.let { comment ->
 //                        adapter.models = comment as List<String>
