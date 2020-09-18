@@ -40,6 +40,7 @@ class CommentActivity : AppCompatActivity() {
                         tvCommentEmpty.visibility = View.VISIBLE
                     }
                 }
+
 //                if (it.exists()) {
 //                    it.get("comments")?.let { comment ->
 //                        adapter.models = comment as List<String>
