@@ -20,10 +20,10 @@ class AddPostFragment(): Fragment(R.layout.add_post_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        db.collection("users").document(mAuth.currentUser!!.uid).get()
-            .addOnSuccessListener {
-                tvTitleAddPost.text = it.get("username").toString()
-            }
+//        db.collection("users").document(mAuth.currentUser!!.uid).get()
+//            .addOnSuccessListener {
+//                tvTitleAddPost.text = it.get("username").toString()
+//            }
 
         btnAddPost.setOnClickListener {
             loading(true)
