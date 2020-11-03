@@ -14,12 +14,11 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
-    lateinit var mAuth: FirebaseAuth
+    private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        mAuth = FirebaseAuth.getInstance()
         btnLogin.setOnClickListener {
             loadingView(true)
             if (etUsernameLogin.text.isNotEmpty() && etPasswordLogin.text.isNotEmpty()) {

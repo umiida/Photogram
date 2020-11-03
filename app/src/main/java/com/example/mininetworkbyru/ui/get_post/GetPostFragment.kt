@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mininetworkbyru.R
 import com.example.mininetworkbyru.ui.comment.CommentActivity
+import com.example.mininetworkbyru.ui.comment.adding.AddNewCommentActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.get_post_fragment.*
@@ -25,6 +26,11 @@ class GetPostFragment: Fragment(R.layout.get_post_fragment) {
         adapter.setOnItemClicked {
             val intent = Intent(requireContext(), CommentActivity:: class.java)
             intent.putExtra("comId", it.id)
+            startActivity(intent)
+        }
+        adapter.setOnCmtClick{
+            val intent = Intent(requireContext(), AddNewCommentActivity:: class.java)
+            intent.putExtra("postId", it.id)
             startActivity(intent)
         }
         rcvGetPost.adapter = adapter

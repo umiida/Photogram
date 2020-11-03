@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mininetworkbyru.R
+import kotlinx.android.synthetic.main.comment_item.view.*
 import kotlinx.android.synthetic.main.get_post_item.view.*
 
 class GetPostAdapter : RecyclerView.Adapter<GetPostAdapter.GetPostViewHolder>() {
@@ -18,6 +19,11 @@ class GetPostAdapter : RecyclerView.Adapter<GetPostAdapter.GetPostViewHolder>() 
     var onItemClick :(model: Post) -> Unit = {}
     fun setOnItemClicked(onItemClick: (model: Post) -> Unit){
         this.onItemClick = onItemClick
+    }
+
+    var onCmtClicked :(model: Post) -> Unit = {}
+    fun setOnCmtClick(onCmtClicked: (model: Post) -> Unit){
+        this.onCmtClicked = onCmtClicked
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GetPostViewHolder {
@@ -40,6 +46,9 @@ class GetPostAdapter : RecyclerView.Adapter<GetPostAdapter.GetPostViewHolder>() 
             itemView.setOnClickListener {
                 onItemClick.invoke(post)
             }
+//            itemView.imgCommentItem.setOnClickListener {
+//                onCmtClicked.invoke(post)
+//            }
         }
     }
 }
@@ -51,5 +60,6 @@ data class Post(
     val like: Int = 0,
     val dislike: Int = 0,
     val userId: String = "",
-    var cmt_text: String = ""
+    var cmt_text: String = "",
+    var comments: List<Map<String, String>> = listOf()
 )
